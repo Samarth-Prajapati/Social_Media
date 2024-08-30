@@ -1,0 +1,42 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[4820],{5353:function(e,r,t){(window.__NEXT_P=window.__NEXT_P||[]).push(["/_error",function(){return t(83929)}])},89834:function(e,r,t){"use strict";t.d(r,{N:function(){return g}});var n=t(85893),o=(t(67294),t(59016)),s=t(41664),i=t.n(s),c=t(72457),a=t(91966);const u=o.ZP.div.withConfig({displayName:"FullScreenMessage__PageContainer",componentId:"sc-90a4dcc9-0"})`
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+  background-color: ${e=>{let{theme:r}=e;return r.colors.background}};
+  user-select: text;
+`,l=o.ZP.div.withConfig({displayName:"FullScreenMessage__Content",componentId:"sc-90a4dcc9-1"})`
+  flex-direction: row;
+  text-align: center;
+  max-width: 340px;
+  width: 100%;
+  padding: 0 20px;
+`,d=o.ZP.div.withConfig({displayName:"FullScreenMessage__LogoContainer",componentId:"sc-90a4dcc9-2"})`
+  margin-bottom: 28px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`,C=o.ZP.div.withConfig({displayName:"FullScreenMessage__MainMessage",componentId:"sc-90a4dcc9-3"})`
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+`,g=o.ZP.div.withConfig({displayName:"FullScreenMessage__SubMessage",componentId:"sc-90a4dcc9-4"})`
+  margin: 24px 0;
+  font-size: 13px;
+  line-height: 16px;
+  color: ${e=>{let{theme:r}=e;return r.colors.subMessageText}};
+
+  a {
+    color: ${e=>{let{theme:r}=e;return r.colors.subMessageLink}};
+
+    &:hover,
+    :focus,
+    :active {
+      text-decoration: underline;
+    }
+  }
+`;r.Z=e=>{let{mainMessage:r,children:t}=e;const{workspaceUrl:o}=(0,a.B)();return(0,n.jsx)(u,{children:(0,n.jsxs)(l,{children:[(0,n.jsx)(i(),{href:o,children:(0,n.jsx)(d,{children:(0,n.jsx)(c.Z,{style:{width:"40px",height:"40px"}})})}),(0,n.jsx)(C,{children:r}),t]})})}},2767:function(e,r,t){"use strict";t.d(r,{K:function(){return s}});var n=t(85893),o=t(67294);const s=t(59016).ZP.svg.withConfig({displayName:"SvgIcon__SvgIconWrapper",componentId:"sc-4eac6597-0"})`
+  fill: ${e=>e.theme.colors.icon};
+`,i=(0,o.forwardRef)(((e,r)=>{let{alt:t,children:o,style:i,title:c,viewBox:a,dataTestId:u,...l}=e;return(0,n.jsxs)(s,{alt:t,ref:r,role:c?"img":void 0,style:i,viewBox:a,"data-testid":u,...l,children:[o,c?(0,n.jsx)("title",{children:c}):null]})}));r.Z=i},72457:function(e,r,t){"use strict";var n=t(85893),o=t(67294),s=t(2767);const i=(0,o.forwardRef)(((e,r)=>(0,n.jsx)(s.Z,{ref:r,viewBox:"0 0 40 40",...e,children:(0,n.jsx)("path",{d:"M39.7794 18.3938L36.2579 5.80971C36.1199 5.3165 35.8571 4.86717 35.495 4.50503C35.1328 4.14288 34.6835 3.88013 34.1903 3.7421L21.6059 0.220553C20.5549 -0.0735176 19.4434 -0.0735176 18.3925 0.220553L5.81007 3.7416C5.31678 3.87955 4.86735 4.14227 4.50511 4.50443C4.14287 4.86658 3.88005 5.31595 3.74198 5.80922L0.220481 18.3938C-0.0734935 19.4446 -0.0734935 20.5559 0.220481 21.6067L3.74049 34.1913C3.87869 34.6847 4.14174 35.1342 4.50425 35.4964C4.86676 35.8585 5.3165 36.1212 5.81007 36.2589L18.395 39.7794C19.4459 40.0735 20.5574 40.0735 21.6084 39.7794L34.1918 36.2589C34.685 36.1208 35.1344 35.858 35.4966 35.4958C35.8587 35.1335 36.1214 34.6841 36.2594 34.1908L39.7794 21.6067C40.0735 20.5559 40.0735 19.4446 39.7794 18.3938ZM36.5183 21.406L21.4052 36.5193C21.2206 36.7038 21.0015 36.8503 20.7603 36.9502C20.5192 37.0501 20.2607 37.1015 19.9997 37.1015C19.7387 37.1015 19.4802 37.0501 19.239 36.9502C18.9979 36.8503 18.7788 36.7038 18.5942 36.5193L3.48111 21.406C3.29654 21.2214 3.15012 21.0023 3.05023 20.7611C2.95034 20.52 2.89893 20.2615 2.89893 20.0005C2.89893 19.7395 2.95034 19.481 3.05023 19.2398C3.15012 18.9987 3.29654 18.7796 3.48111 18.595L18.5942 3.48123C18.7788 3.29665 18.9979 3.15023 19.239 3.05034C19.4802 2.95045 19.7387 2.89903 19.9997 2.89903C20.2607 2.89903 20.5192 2.95045 20.7603 3.05034C21.0015 3.15023 21.2206 3.29665 21.4052 3.48123L36.5183 18.595C36.7028 18.7796 36.8492 18.9987 36.9491 19.2398C37.049 19.481 37.1004 19.7395 37.1004 20.0005C37.1004 20.2615 37.049 20.52 36.9491 20.7611C36.8492 21.0023 36.7028 21.2214 36.5183 21.406Z",fill:"#ED00EB"})})));r.Z=i},84096:function(e,r,t){"use strict";t.d(r,{Kv:function(){return o},UQ:function(){return i},WM:function(){return c},XA:function(){return n},bq:function(){return s}});const n="tab";var o;!function(e){e.RECENT="recent",e.CREATED="created",e.ORG="org",e.SHARED="shared",e.DELETED="deleted",e.TEMPLATES="templates"}(o||(o={}));const s=o.RECENT,i=e=>{const r=Array.isArray(e)?e[0]:e;return r&&r.toUpperCase()in o?r:s},c=()=>{const e=new URLSearchParams(window.location.search).get(n)??void 0;return i(e)}},33759:function(e,r,t){"use strict";t.d(r,{C:function(){return s}});var n=t(4480),o=t(84096);const s=(0,n.cn)({key:"workspaceTab",default:(0,o.WM)()})},91966:function(e,r,t){"use strict";t.d(r,{B:function(){return a}});var n=t(4480),o=t(67294),s=t(51203),i=t(84096),c=t(33759);const a=()=>{var e,r,t,a;const{user:u,activeMembership:l}=(0,o.useContext)(s.Z),[d,C]=(0,n.FV)(c.C),g=(0,o.useCallback)((e=>{C(e)}),[C]);return(0,o.useMemo)((()=>{var e,r,t,n;const o="END"===(null===(r=u)||void 0===r||null===(e=r.attributes)||void 0===e?void 0:e.newUserOnboardingNextTask),s=null===(n=l)||void 0===n||null===(t=n.org)||void 0===t?void 0:t.slug,c=o&&s?`/${s}`:"/",a=d===i.bq?c:`${c}?tab=${d}`;return{changeTab:g,workspaceUrl:a}}),[d,g,null===(r=u)||void 0===r||null===(e=r.attributes)||void 0===e?void 0:e.newUserOnboardingNextTask,null===(a=l)||void 0===a||null===(t=a.org)||void 0===t?void 0:t.slug])}},83929:function(e,r,t){"use strict";t.r(r),t.d(r,{default:function(){return l},getInitialProps:function(){return u}});var n=t(85893),o=t(64310),s=t(86090),i=t(89834);const c={400:s.ZP.t("components.error.badRequestErrorMessage"),404:s.ZP.t("components.error.pageNotFoundErrorMessage"),405:s.ZP.t("components.error.methodNotAllowedErrorMessage"),500:s.ZP.t("components.error.internalServerErrorMessage")};var a=e=>{let{statusCode:r,title:t}=e;const o=t||c[r]||s.ZP.t("components.error.errorOccurredPleaseTryRefreshingErrorMessage");return(0,n.jsx)(i.Z,{mainMessage:o})};async function u(e){let{res:r,err:t}=e;var n,o;return{statusCode:!(null===(n=r)||void 0===n?void 0:n.ok)&&(null===(o=r)||void 0===o?void 0:o.statusCode),err:t}}var l=e=>{let{statusCode:r,err:t}=e;return t&&404!==r&&o.v.addError(t,{wsodCrash:!0}),(0,n.jsx)(a,{statusCode:r})}}},function(e){e.O(0,[1664,9774,2888,179],(function(){return r=5353,e(e.s=r);var r}));var r=e.O();_N_E=r}]);

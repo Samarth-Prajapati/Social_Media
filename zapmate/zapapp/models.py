@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin,Group,Permission
 from django.utils import timezone
+from django.contrib.postgres.fields import ArrayField
+
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -39,9 +41,83 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     objects = CustomUserManager()
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    USERNAME_FIELD = 'username'
 
     def __str__(self):
-        return self.email
+        return self.username
 
+
+class Profile(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    bio = models.TextField(blank=True)
+    profile_picture = models.ImageField(upload_to='images/profile_pictures/', blank=True, null=True)
+    def __str__(self):
+        return self.user.username
+
+class TimeCapsule(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='timecapsules')
+    title = models.CharField(max_length=255)
+    content = models.TextField()
+    hashtags = ArrayField(models.CharField(max_length=50), size=30, blank=True, null=True)
+    publish_date = models.DateTimeField(default=timezone.now)
+    available_date = models.DateTimeField()
+    image = models.ImageField(upload_to='images/timecapsules/', blank=True, null=True)
+    is_private = models.BooleanField(default=False)
+
+
+    def __str__(self):
+        return self.title
+
+    def is_available(self):
+        return timezone.now() >= self.available_date
+    is_available.boolean = True
+    is_available.short_description = 'Available'
+
+    class Meta:
+        ordering = ['publish_date']
+
+class Comment(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='comments')
+    timecapsule = models.ForeignKey(TimeCapsule, on_delete=models.CASCADE, related_name='comments')
+    comment = models.TextField()
+    publish_date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.content
+
+    class Meta:
+        ordering = ['publish_date']
+
+class Like(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='likes')
+    timecapsule = models.ForeignKey(TimeCapsule, on_delete=models.CASCADE, related_name='likes')
+    publish_date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.user.username + ' likes ' + self.timecapsule.title
+
+    class Meta:
+        ordering = ['publish_date']
+
+class Follows(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='user')
+    follows = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='follows')
+    follow_date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.user.username + ' follows ' + self.follows.username
+
+    class Meta:
+        ordering = ['follow_date']
+
+class ZapTriggers(models.Model):
+    userby = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='zaptriggersby')
+    userfor = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='zaptriggersfor')
+    message = models.TextField()
+    trigger_date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.user.username + ' zapped ' + self.timecapsule.title
+
+    class Meta:
+        ordering = ['trigger_date']

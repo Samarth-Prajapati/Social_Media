@@ -1,9 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin,Group,Permission
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, Group, Permission
 from django.utils import timezone
 from django.contrib.postgres.fields import ArrayField
 
-
+#For Super User
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
@@ -26,7 +26,9 @@ class CustomUserManager(BaseUserManager):
         
         return self.create_user(email, password, **extra_fields)
 
+# For User
 class CustomUser(AbstractBaseUser, PermissionsMixin):
+    id = models.AutoField(primary_key=True)
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=30, unique=True)
     first_name = models.CharField(max_length=30, blank=True)
@@ -41,11 +43,11 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     objects = CustomUserManager()
 
-    USERNAME_FIELD = 'username'
+    USERNAME_FIELD = 'username'  #default email
+    REQUIRED_FIELDS = ['email']    
 
     def __str__(self):
         return self.username
-
 
 class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
@@ -63,7 +65,6 @@ class TimeCapsule(models.Model):
     available_date = models.DateTimeField()
     image = models.ImageField(upload_to='images/timecapsules/', blank=True, null=True)
     is_private = models.BooleanField(default=False)
-
 
     def __str__(self):
         return self.title
@@ -83,7 +84,7 @@ class Comment(models.Model):
     publish_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.content
+        return self.comment
 
     class Meta:
         ordering = ['publish_date']
@@ -117,7 +118,7 @@ class ZapTriggers(models.Model):
     trigger_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.user.username + ' zapped ' + self.timecapsule.title
+        return self.userby.username + ' zapped ' + self.userfor.username
 
     class Meta:
         ordering = ['trigger_date']

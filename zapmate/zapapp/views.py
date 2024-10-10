@@ -28,7 +28,7 @@ def are_friends(user_id_1, user_id_2):
     else:
         return False
 
-
+# Create a users list
 class UserListCreateView(generics.ListCreateAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserSerializer
@@ -43,12 +43,12 @@ class UserRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
         queryset = CustomUser.objects.filter(id=self.request.user.id)
         return queryset
 
-
+# Sign Up/Register
 class UserRegistrationView(generics.CreateAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserRegistrationSerializer
 
-
+# User Login
 class UserLoginView(TokenObtainPairView):
     serializer_class = CustomUserLoginSerializer
 
@@ -138,7 +138,7 @@ class TimeCapsuleListCreateView(generics.ListCreateAPIView):
         user_id = self.request.user.id
         serializer.save(user_id=user_id, hashtags=hashtags)
 
-
+#decorator used to notify all users 
 @receiver(post_save, sender=TimeCapsule)
 def send_notification_to_followers(sender, instance, created, **kwargs):
     if created:

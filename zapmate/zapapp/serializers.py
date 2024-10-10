@@ -5,7 +5,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from drf_dynamic_fields import DynamicFieldsMixin
 import json
 
-
+#Password update / change
 class CustomUserSerializer(serializers.ModelSerializer):
     old_password = serializers.CharField(write_only=True, required=False)
     new_password = serializers.CharField(write_only=True, required=False)
@@ -42,7 +42,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
         instance.save()
         return instance
 
-
+# Sign Up/ For creating new account/id
 class CustomUserRegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
@@ -56,7 +56,7 @@ class CustomUserRegistrationSerializer(serializers.ModelSerializer):
         Profile.objects.create(user=instance)
         return instance
 
-
+# Login
 class CustomUserLoginSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
@@ -128,7 +128,7 @@ class TimeCapsuleSerializer(serializers.ModelSerializer):
     total_likes = serializers.SerializerMethodField()
     total_comments = serializers.SerializerMethodField()
     liked = serializers.SerializerMethodField()
-    pfp = serializers.SerializerMethodField()
+    pfp = serializers.SerializerMethodField()  #proflepic
 
     class Meta:
         model = TimeCapsule

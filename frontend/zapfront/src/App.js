@@ -11,13 +11,13 @@ import Sidebar from "./components/Sidebar";
 import User from "./components/User";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
-import {createContext, useContext } from "react";
+import { createContext, useContext } from "react";
 import Settings from "./components/Settings";
 import Explore from "./components/Explore";
 import Loader from "./components/Loader";
 import FuturePeek from "./components/FuturePeek";
 function App() {
-  const { user,loading } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const location = useLocation();
 
   return (

@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import CustomUser
 
+# password update or change
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser

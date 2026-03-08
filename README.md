@@ -1,2 +1,3 @@
-# zapmate
-group project zapmate time capsule
+# Social Media App - Zapmate
+
+---
